@@ -35,7 +35,6 @@ connection.connect(function (err) {
 // VIEWS ROUTES
 
 app.get("/", (req, res) => {
-  //   res.send("All my movies will go here.");
   connection.query(`SELECT * FROM movies;`, (err, data) => {
     if (err) throw err;
     res.render("index", { movies: data });
@@ -47,7 +46,6 @@ app.get("/movies/new", (req, res) => {
 });
 
 app.get("/movies/:id", (req, res) => {
-  //   res.send("A single movie will go here.");
   const movieID = req.params.id;
 
   connection.query(
@@ -77,8 +75,14 @@ app.put("/api/movies/:id", (req, res) => {
 });
 
 app.delete("/api/movies/:id", (req, res) => {
-  res.send(
-    "After deleting a new movie in the database, I will return a response."
+  const movieID = req.params.id;
+
+  connection.query(
+    "DELETE FROM movies WHERE id = ?;",
+    [movieID],
+    (err, result) => {
+      res.json(result);
+    }
   );
 });
 
