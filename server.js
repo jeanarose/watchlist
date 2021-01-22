@@ -36,7 +36,7 @@ connection.connect(function (err) {
 
 app.get("/", (req, res) => {
   //   res.send("All my movies will go here.");
-  connection.query(`SELECT * FROM movies`, (err, data) => {
+  connection.query(`SELECT * FROM movies;`, (err, data) => {
     if (err) throw err;
     res.render("index", { movies: data });
   });
@@ -51,11 +51,11 @@ app.get("/movies/:id", (req, res) => {
   const movieID = req.params.movieID;
 
   connection.query(
-    `SELECT * FROM movies WHERE id = ?`,
+    `SELECT * FROM movies WHERE id = ?;`,
     [movieID],
     (err, data) => {
       if (err) throw err;
-      console.log(data);
+      res.render("single-movie", data[0]);
     }
   );
 });

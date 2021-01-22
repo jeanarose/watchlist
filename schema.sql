@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS watchl_ist_db;
+DROP DATABASE IF EXISTS watch_list_db;
 
 CREATE DATABASE watch_list_db;
 
@@ -9,4 +9,3 @@ CREATE TABLE movies (
   movie varchar(255) NOT NULL,
   PRIMARY KEY (id)
 );
-
