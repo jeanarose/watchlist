@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS watchlist_db;
+DROP DATABASE IF EXISTS watchl_ist_db;
 
-CREATE DATABASE watchlist_db;
+CREATE DATABASE watch_list_db;
 
-USE watchlist_db;
+USE watch_list_db;
 
 CREATE TABLE movies (
   id int NOT NULL AUTO_INCREMENT,
