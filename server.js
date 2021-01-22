@@ -43,8 +43,24 @@ app.get("/movies/:id/edit", (req, res) => {
 });
 
 app.get("/movies/new", (req, res) => {
-    res.send("A form to create a new movie will go here.");
-  });
+  res.send("A form to create a new movie will go here.");
+});
+
+app.post("/api/movies", (req, res) => {
+  res.send(
+    "After creating a new movie in the database, I will return a response."
+  );
+});
+
+app.put("/api/movies/:id", (req, res) => {
+  res.send("After updating a movie by ID, I will return a response.");
+});
+
+app.delete("/api/movies/:id", (req, res) => {
+  res.send(
+    "After deleting a new movie in the database, I will return a response."
+  );
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
