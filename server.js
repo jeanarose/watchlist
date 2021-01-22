@@ -48,7 +48,7 @@ app.get("/movies/new", (req, res) => {
 
 app.get("/movies/:id", (req, res) => {
   //   res.send("A single movie will go here.");
-  const movieID = req.params.movieID;
+  const movieID = req.params.id;
 
   connection.query(
     `SELECT * FROM movies WHERE id = ?;`,
