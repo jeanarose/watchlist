@@ -5,7 +5,7 @@ const mysql = require("mysql");
 
 const app = express();
 
-// PORT to listen on 
+// PORT to listen on
 const PORT = process.env.PORT || 8080;
 
 // Middleware
@@ -35,19 +35,29 @@ connection.connect(function (err) {
 // VIEWS ROUTES
 
 app.get("/", (req, res) => {
-//   res.send("All my movies will go here.");
-    connection.query(`SELECT * FROM movies`,(err, data)=>{
-        if(err) throw err;
-        res.render("index", { movies: data });
-    })
+  //   res.send("All my movies will go here.");
+  connection.query(`SELECT * FROM movies`, (err, data) => {
+    if (err) throw err;
+    res.render("index", { movies: data });
+  });
 });
 
 app.get("/movies/new", (req, res) => {
-    res.send("A form to create a new movie will go here.");
-  });
+  res.send("A form to create a new movie will go here.");
+});
 
 app.get("/movies/:id", (req, res) => {
-  res.send("A single movie will go here.");
+  //   res.send("A single movie will go here.");
+  const movieID = req.params.movieID;
+
+  connection.query(
+    `SELECT * FROM movies WHERE id = ?`,
+    [movieID],
+    (err, data) => {
+      if (err) throw err;
+      console.log(data);
+    }
+  );
 });
 
 app.get("/movies/:id/edit", (req, res) => {
