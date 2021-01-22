@@ -11,4 +11,4 @@ CREATE TABLE movies (
 );
 
 INSERT INTO movies (movie)
-VALUES ("Frozen 2");
+VALUES ("Frozen 2"), ("Jurassic Park");
