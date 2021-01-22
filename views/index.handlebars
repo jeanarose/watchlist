@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Movie Watchlist</h1>
+        </div>
+    </div>
+    {{!-- For each object in the movies array, display them --}}
+    {{#each movies}}
+    <h3>{{id}}. {{movie}}</h3>
+    {{/each}}
+</div>
